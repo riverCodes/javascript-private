@@ -49,6 +49,7 @@ function draw({key, color}) {
 
 // Reset/Shake Function
 function resetCanvas() {
+  ctx.lineWidth = 20;
   canvas.classList.add(`shake`);
   ctx.clearRect(0,0,width, height);
   canvas.addEventListener(`animationend`, () => {
@@ -81,6 +82,9 @@ function colorButtonHandler(e) {
 function sizeButtonHandler(e) {
   if (e.target.id === `plus`) {
     ctx.lineWidth += 10;
+  }
+  else {
+    ctx.lineWidth -= 10;
   }
 }
 
