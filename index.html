@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etch-A-Sketch</title>
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      height: 100%;
+      background: url(./BG.webp) no-repeat;
+      background-size: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    .wrapper {
+      display: grid;
+      gap: 1rem;
+    }
+
+    canvas {
+      width: 960px;
+      height: 540px;
+      border: 30px solid red;
+      border-radius: 15px;
+      background: url(./Checked-BG.jpg) no-repeat top;
+      background-size: 125%;
+      display: block;
+    }
+
+    button {
+      background: red;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 30px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .shake {
+      animation-name: shake;
+      animation-duration: .5s;
+      animation-timing-function: ease-out;
+      animation-iteration-count: 1;
+      justify-self: start;
+    }
+
+    .top-row {
+      display: grid;
+      place-items: center;
+      gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .line-tab {
+      justify-self: start;
+    }
+
+    .size {
+      width: 50px;
+      height: 50px;
+      font-size: 1rem;
+
+    }
+
+    .color-tab {
+      justify-self: end;
+    }
+
+    .color {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
+
+    #red {
+      background: red;
+    }
+
+    #green {
+      background: green;
+    }
+
+    #blue {
+      background: blue;
+    }
+
+    #black {
+      background: black;
+    }
+
+    @keyframes shake {
+      20% {
+        transform: translateX(50px);
+      }
+
+      40% {
+        transform: translateX(-50px);
+      }
+
+      60% {
+        transform: translateX(25px);
+      }
+
+      80% {
+        transform: translateX(-25px);
+      }
+
+      100% {
+        transform: translateX(0px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="top-row">
+      <div class="line-tab">
+        <button id="minus" class="size">-</button>
+        <button id="plus" class="size">+</button>
+      </div>
+      <div class="color-tab">
+        <button id="red" class="color" data-color="hsl(0, 100%, 50%)"></button>
+        <button id="green" class="color" data-color="hsl(120, 100%, 50%)"></button>
+        <button id="blue" class="color" data-color="hsl(240, 100%, 50%)"></button>
+        <button id="black" class="color" data-color="hsl(0, 0%, 0%)"></button>
+      </div>
+    </div>
+    <canvas id="etch-a-sketch" width="1920" height="1080"></canvas>
+    <button class="shake-button">Reset</button>
+  </div>
+  <script src="./script.js"></script>
+</body>
+
+</html>
