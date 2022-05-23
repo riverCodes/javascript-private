@@ -62,6 +62,19 @@
 
     .line-tab {
       justify-self: start;
+      display: flex;
+      gap: 5px;
+    }
+
+    .display {
+      background: white;
+      width: 100px;
+      height: 50px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      font-family: monospace;
     }
 
     .size {
@@ -79,6 +92,11 @@
       border-radius: 50%;
       width: 50px;
       height: 50px;
+    }
+
+
+    .color:focus {
+      border: 3px solid gold;
     }
 
     #red {
@@ -126,6 +144,7 @@
     <div class="top-row">
       <div class="line-tab">
         <button id="minus" class="size">-</button>
+        <div id="display" class="display"></div>
         <button id="plus" class="size">+</button>
       </div>
       <div class="color-tab">

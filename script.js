@@ -3,6 +3,7 @@ const canvas = document.querySelector(`#etch-a-sketch`);
 const shakeButton = document.querySelector(`.shake-button`);
 const colorButtons = document.querySelectorAll(`.color`);
 const sizeButtons = document.querySelectorAll(`.size`);
+const displaySize = document.querySelector(`#display`);
 
 // Constants
 const MOVE_TO = 20;
@@ -13,6 +14,7 @@ const ctx = canvas.getContext(`2d`, `alpha`);
 ctx.lineCap = `square`;
 ctx.lineJoin = `miter`;
 ctx.lineWidth = 20;
+displaySize.textContent = `${ctx.lineWidth}`;
 
 // Random Starting Point
 const {width, height} = canvas;
@@ -62,6 +64,7 @@ function resetCanvas() {
   ctx.moveTo(x,y);
   ctx.lineTo(x,y);
   ctx.stroke();
+  displaySize.textContent = `${ctx.lineWidth}`;
 };
 
 
@@ -80,12 +83,22 @@ function colorButtonHandler(e) {
 
 // Size Button Click Handler
 function sizeButtonHandler(e) {
-  if (e.target.id === `plus`) {
+if (e.target.id === `plus`) {
+  if (ctx.lineWidth < 200) {
     ctx.lineWidth += 10;
+  } else {
+    return;
   }
-  else {
+} else {
+  if (ctx.lineWidth > 0) {
     ctx.lineWidth -= 10;
   }
+}
+ctx.beginPath();
+ctx.moveTo(x,y);
+ctx.lineTo(x,y);
+ctx.stroke();
+displaySize.textContent = `${ctx.lineWidth}`;
 }
 
 // Listening For Arrow Keys
