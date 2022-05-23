@@ -22,6 +22,7 @@
 
     .wrapper {
       display: grid;
+      place-items: center;
       gap: 1rem;
     }
 
@@ -54,10 +55,16 @@
     }
 
     .top-row {
+      width: 100%;
       display: grid;
       place-items: center;
       gap: 1rem;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .description {
+      text-align: center;
+      font-family: monospace;
     }
 
     .line-tab {
@@ -147,11 +154,15 @@
         <div id="display" class="display"></div>
         <button id="plus" class="size">+</button>
       </div>
+      <div class="description">
+        <h1>Etch-A-Sketch v2</h1>
+        <p>Use arrow keys to draw</p>
+      </div>
       <div class="color-tab">
         <button id="red" class="color" data-color="hsl(0, 100%, 50%)"></button>
         <button id="green" class="color" data-color="hsl(120, 100%, 50%)"></button>
         <button id="blue" class="color" data-color="hsl(240, 100%, 50%)"></button>
-        <button id="black" class="color" data-color="hsl(0, 0%, 0%)"></button>
+        <button id="black" class="color" data-color="hsl(0, 0%, 0%)" autofocus></button>
       </div>
     </div>
     <canvas id="etch-a-sketch" width="1920" height="1080"></canvas>
