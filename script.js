@@ -81,18 +81,23 @@ function colorButtonHandler(e) {
   draw({color: e.target.dataset.color});
 }
 
-// Size Button Click Handler
-function sizeButtonHandler(e) {
-if (e.target.id === `plus`) {
+// increase and decrease line width
+function increaseSize () {
   if (ctx.lineWidth < 200) {
     ctx.lineWidth += 10;
-  } else {
-    return;
   }
-} else {
+}
+function decreaseSize () {
   if (ctx.lineWidth > 0) {
     ctx.lineWidth -= 10;
   }
+}
+// Size Button Click Handler
+function sizeButtonHandler(e) {
+if (e.target.id === `plus`) {
+  increaseSize();
+} else {
+  decreaseSize();
 }
 ctx.beginPath();
 ctx.moveTo(x,y);
