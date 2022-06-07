@@ -1,0 +1,94 @@
+:root {
+    font-family: monospace;
+    font-size: 16px;
+}
+*, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+}
+img {
+    display: block;
+    width: 100%;
+}
+body {
+    background: lightsalmon;
+}
+.container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, 232px));
+    gap: 1rem;
+    align-content: center;
+    justify-content: space-around;
+    background: lightcoral;
+    margin: 2rem 1rem;
+    padding: 5rem 1rem 2rem 1rem;
+}
+
+.card {
+    background: lightgoldenrodyellow;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 100%;
+}
+h1 {
+    position: absolute;
+    justify-self: center;
+    font-size: 3rem;
+    background: lightgoldenrodyellow;
+}
+.card h2 {
+    width: 100%;
+    margin-block: .5rem;
+    font-size: min(3vw, 2rem);
+}
+.learn-more {
+    font-family: inherit;
+    font-size: min(2vw, 1rem);
+    background: lightgoldenrodyellow;
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+}
+.learn-more:hover,.learn-more:focus {
+    text-decoration: underline;
+}
+
+.outer-modal {
+    display: none;
+}
+
+.outer-modal[open="true"] {
+    background: rgba(255, 255, 224, 0.6);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    display: grid;
+    place-items: center;
+    overflow: scroll;
+}
+.outer-modal[open="true"] .inner-modal {
+    display: grid;
+    place-items: center;
+    max-width: 600px;
+    background: lightgoldenrodyellow;
+    padding: 2rem;
+    margin: 1rem;
+    text-align: center;
+}
+.inner-modal {
+    display: none;
+}
+.inner-modal h2 {
+    margin-block: .25rem;
+    font-size: min(10vw, 2rem);
+}
+.inner-modal p {
+    font-size: min(5vw, 1rem);
+}
